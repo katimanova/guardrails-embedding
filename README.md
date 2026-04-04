@@ -10,8 +10,9 @@
 | Датасет | Размер (split) | Метки |
 |---|---|---|
 | [walledai/XSTest](https://huggingface.co/datasets/walledai/XSTest) | 450 (test) | safe / unsafe |
-| [nvidia/Aegis-AI-Content-Safety-Dataset-2.0](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0) | 1964 (test) | safe / unsafe / Needs Caution |
+| [nvidia/Aegis-AI-Content-Safety-Dataset-2.0](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0) | 1964 (test) & 30007 (train)  | safe / unsafe |
 
++ допонительный анализ по доменам
 ---
 
 ## Эксперименты
@@ -78,15 +79,79 @@
 ### 5. Aegis × Qwen3Guard-Gen-0.6B — PCA + UMAP
 
 Модель: `Qwen/Qwen3Guard-Gen-0.6B` (29 слоёв, hidden_dim=1024)
-Датасет: Aegis test split (1964 примера). Нижние панели — coloring по первой нарушенной категории (`violated_categories`). Silhouette указан на каждом сабплоте.
+Нижние панели — coloring по первой нарушенной категории (`violated_categories`). Silhouette указан на каждом сабплоте.
+
+#### Test split
 
 **Silhouette по слоям:**
 
-![Silhouette](pca_presentation/aegis/pca_umap_layers_qwen_06/silhouette_by_layer.png)
+![Silhouette](pca_presentation/aegis/test/pca_umap_layers_qwen_06/silhouette_by_layer.png)
 
 **Анимация по слоям:**
 
-![Animation](pca_presentation/aegis/pca_umap_layers_qwen_06/layers_animation.gif)
+![Animation](pca_presentation/aegis/test/pca_umap_layers_qwen_06/layers_animation.gif)
+
+#### Train split
+
+**Silhouette по слоям:**
+
+![Silhouette](pca_presentation/aegis/train/pca_umap_layers_qwen_06/silhouette_by_layer.png)
+
+**Анимация по слоям:**
+
+![Animation](pca_presentation/aegis/train/pca_umap_layers_qwen_06/layers_animation.gif)
+
+---
+
+### 6. Aegis × Qwen3Guard-Gen-4B — PCA + UMAP
+
+Модель: `Qwen/Qwen3Guard-Gen-4B` (37 слоёв, hidden_dim=2560)
+
+#### Test split
+
+**Silhouette по слоям:**
+
+![Silhouette](pca_presentation/aegis/test/pca_umap_layers_qwen_4/silhouette_by_layer.png)
+
+**Анимация по слоям:**
+
+![Animation](pca_presentation/aegis/test/pca_umap_layers_qwen_4/layers_animation.gif)
+
+#### Train split
+
+**Silhouette по слоям:**
+
+![Silhouette](pca_presentation/aegis/train/pca_umap_layers_qwen_4/silhouette_by_layer.png)
+
+**Анимация по слоям:**
+
+![Animation](pca_presentation/aegis/train/pca_umap_layers_qwen_4/layers_animation.gif)
+
+---
+
+### 7. Aegis × Qwen3Guard-Gen-8B — PCA + UMAP
+
+Модель: `Qwen/Qwen3Guard-Gen-8B` (37 слоёв, hidden_dim=3584)
+
+#### Test split
+
+**Silhouette по слоям:**
+
+![Silhouette](pca_presentation/aegis/test/pca_umap_layers_qwen_8/silhouette_by_layer.png)
+
+**Анимация по слоям:**
+
+![Animation](pca_presentation/aegis/test/pca_umap_layers_qwen_8/layers_animation.gif)
+
+#### Train split
+
+**Silhouette по слоям:**
+
+![Silhouette](pca_presentation/aegis/train/pca_umap_layers_qwen_8/silhouette_by_layer.png)
+
+**Анимация по слоям:**
+
+![Animation](pca_presentation/aegis/train/pca_umap_layers_qwen_8/layers_animation.gif)
 
 ---
 
@@ -112,7 +177,14 @@ pca_presentation/
     pca_umap_layers_qwen_06/
     pca_umap_layers_qwen_4/
   aegis/
-    pca_umap_layers_qwen_06/
+    test/
+      pca_umap_layers_qwen_06/
+      pca_umap_layers_qwen_4/
+      pca_umap_layers_qwen_8/
+    train/
+      pca_umap_layers_qwen_06/
+      pca_umap_layers_qwen_4/
+      pca_umap_layers_qwen_8/
 ```
 
 ## Запуск
