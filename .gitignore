@@ -227,6 +227,9 @@ results/
 figures/
 *.pdf
 
+# Per-layer plots (kept only as GIFs)
+pca_presentation/**/layer_*.png
+
 # macOS
 .DS_Store
 
